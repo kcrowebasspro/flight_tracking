@@ -14,6 +14,8 @@ const app = express()
 // Serve static files from the "/var/www/html" directory 
 app.use(express.static('/var/www/html'))
 
+const {runQueries} = require('../server/database.js')
+
 const cors = require("cors")
 
 // Allow us to load environment variables from the .env file
@@ -133,7 +135,7 @@ app.get('/flights/:airport_code', async (request, response) => {
           console.log(" +++++++++ calling runQueries() +++++++++++++++")
           
           // Used for lab 7
-          // runQueries(json)
+          runQueries(json)
 
           console.log(" +++++++++ completed runQueries() +++++++++++++++")
 
